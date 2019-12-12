@@ -10,7 +10,7 @@
     },
     {
       "$ref": "../common/x_ased_cyber_observable_core.json"
-    }
+    },
     {
       "properties": {
         "type": {

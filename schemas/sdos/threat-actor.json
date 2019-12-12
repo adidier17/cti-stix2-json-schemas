@@ -1,5 +1,5 @@
 {
-  "$id": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/sdos/threat-actor.json",
+  "$id": "https://gitlab.ased.io/jpl/stix-schemas-fork/blob/master/schemas/sdos/threat-actor.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "threat-actor",
   "description": "Threat Actors are actual individuals, groups, or organizations believed to be operating with malicious intent.",
@@ -104,6 +104,9 @@
     "name",
     "threat_actor_types"
   ],
+  "allOf": [ {"$ref": "../common/x_ased_dialogue_flags.json"}
+
+  ]
   "definitions": {
     "threat-actor-type-ov": {
       "type": "string",

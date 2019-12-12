@@ -1,0 +1,189 @@
+{
+  "$id": "https://gitlab.ased.io/jpl/stix-schemas-fork/blob/master/schemas/common/x_ased_dialogue_flags.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "x_ased_dialogue-flags",
+  "description": "Flags about a threat actor for a TA1/2 system to capture",
+  "type": "object",
+  "properties": {
+    "x_ased_action": {
+      "type": "object",
+      "description": "An action the threat actor took",
+      "properties": {
+        "action_type": {
+          "type": "string",
+          "enum": [
+            "clicked_lin",
+            "download_attachment",
+            "open_attachment",
+            "send_attachment",
+            "complete_online",
+            "accept_appointment"
+          ]
+        },
+        "file_name": {
+          "type": "string"
+        },
+        "link_source": {
+          "type": "string"
+        },
+        "link_text": {
+          "type": "string"
+        },
+        "datetime": {
+          "$ref": "../common/timestamp.json"
+        }
+      },
+      "required": [
+        "action_type"
+      ]
+    },
+    "x_ased_associate": {
+      "type": "object",
+      "description": "Associates of the threat actor",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the associate."
+        },
+        "relationship": {
+          "type": "string",
+          "description": "The relationship to the attacker"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "x_ased_browser": {
+      "type": "object",
+      "description": "The browser the threat actor uses.",
+      "properties": {
+        "value": {
+          "type": "string",
+          "description": "eg chrome, firefox, safari, internet explorer"
+        },
+        "version": {
+          "type": "string"
+        },
+        "required": [
+          "value"
+        ]
+      }
+    },
+    "x_ased_description": {
+      "type": "object",
+      "description": "A physical description of the threat actor and/or link to a photo of the threat actor",
+      "properties": {
+        "photo_url": {
+          "type": "string",
+          "description": "A link to a photo of the threat actor"
+        },
+        "height": {
+          "type": "string"
+        },
+        "weight": {
+          "type": "string"
+        },
+        "eye": {
+          "type": "string"
+        },
+        "hair": {
+          "type": "string"
+        }
+      }
+    },
+    "x_ased_email_client": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "required": [
+          "value"
+        ]
+      }
+    },
+    "x_ased_financial_information": {
+      "type": "object",
+      "properties": {
+        "bank_name": {
+          "type": "string"
+        },
+        "account_number": {
+          "type": "string"
+        },
+        "routing_number": {
+          "type": "string"
+        },
+        "creditcard_number": {
+          "type": "string"
+        },
+        "creditcard_expiration": {
+          "type": "string"
+        },
+        "creditcard_ccv": {
+          "type": "string"
+        }
+      }
+    },
+    "x_ased_location": {
+      "type": "object",
+      "description": "Physical or virtual location of threat actor or threat actor company",
+      "properties": {
+        "allOf": {"$ref": "../sdos/location.json"},
+        "type": {
+          "type": "string",
+          "enum": ["company", "personal"]
+},
+        "ip_address": {
+          "oneOf": [
+            {"$ref": "../sdos/ipv4-addr.json"},
+            {"$ref": "../sdos/ipv6-addr.json"}
+          ]
+        }
+      }
+    },
+    "x_ased_phone_number": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "description": "Specifies the E.164 formatted phone number associated with a Threat Actor",
+          "pattern": "^+\\d{7,15}"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["mobile", "landline"]
+          },
+        "use": {
+          "type": "string",
+          "enum": ["home", "office"]
+        }
+      },
+      "required": ["value"]
+    },
+    "x_ased_occupation": {
+      "type": "string"
+    },
+    "x_ased_income": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "int"
+        },
+        "period": {
+          "type": "string",
+          "enum": ["daily", "weekly", "biweekly", "monthly", "bimonthly", "quarterly", "yearly", "other"]
+        },
+        "currency": {
+          "type": "string",
+          "description": "ISO_4217 currency code, unless crypto currency. https://www.iso.org/iso-4217-currency-codes.html, https://www.iban.com/currency-codes. "
+        }
+      }
+    }
+
+  }
+}
