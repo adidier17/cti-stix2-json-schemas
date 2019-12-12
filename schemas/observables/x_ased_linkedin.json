@@ -1,5 +1,5 @@
 {
-  "$id": "",
+  "$id": "https://gitlab.ased.io/jpl/stix-schemas-fork/blob/master/schemas/observables/x_ased_linkedin.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "x_ased_linkedin",
   "description": "The LinkedIn Object represents an instance of a LinkedIn message.",
