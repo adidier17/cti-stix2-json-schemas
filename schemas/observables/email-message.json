@@ -1,5 +1,5 @@
 {
-  "$id": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/observables/email-message.json",
+  "$id": "",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "email-message",
   "description": "The Email Message Object represents an instance of an email message.",
@@ -9,83 +9,30 @@
       "$ref": "../common/cyber-observable-core.json"
     },
     {
+      "$ref": "../common/x_ased_cyber_observable_core.json"
+    }
+    {
       "properties": {
         "type": {
           "type": "string",
           "description": "The value of this property MUST be `email-message`.",
-          "enum": [
-            "email-message"
-          ]
+          "const": "email-message"
         },
         "id": {
           "title": "id",
           "pattern": "^email-message--"
         },
-        "date": {
-          "$ref": "../common/timestamp.json",
-          "description": "Specifies the date/time that the email message was sent."
-        },
-        "content_type": {
+        "x_ased_delivered_to": {
           "type": "string",
-          "description": "Specifies the value of the 'Content-Type' header of the email message."
+          "description": "Specificies the inbox that the message was delivered to. The value should This must be the value from incoming_message_json[\"meta\"][\"provenance\"][\"account\"]."
         },
-        "from_ref": {
-          "description": "Specifies the value of the 'From:' header of the email message.",
-          "type": "string"
-        },
-        "sender_ref": {
-          "description": "Specifies the value of the 'From' field of the email message.",
-          "type": "string"
-        },
-        "to_refs": {
-          "type": "array",
-          "description": "Specifies the mailboxes that are 'To:' recipients of the email message.",
-          "items": {
-            "type": "string"
-          },
-          "minItems": 1
-        },
-        "cc_refs": {
-          "type": "array",
-          "description": "Specifies the mailboxes that are 'CC:' recipients of the email message.",
-          "items": {
-            "type": "string"
-          },
-          "minItems": 1
-        },
-        "bcc_refs": {
-          "type": "array",
-          "description": "Specifies the mailboxes that are 'BCC:' recipients of the email message.",
-          "items": {
-            "type": "string"
-          },
-          "minItems": 1
-        },
-        "message_id" : {
-          "type" : "string",
-          "description": "Specifies the Message-ID field of the email message."
-        },
-        "subject": {
+        "x_ased_from": {
           "type": "string",
-          "description": "Specifies the subject of the email message."
-        },
-        "received_lines": {
-          "type": "array",
-          "description": "Specifies one or more Received header fields that may be included in the email headers.",
-          "items": {
-            "type": "string"
-          }
-        },
-        "additional_header_fields": {
-          "$ref": "#/definitions/email-additional-header-fields",
-          "description": "Specifies any other header fields found in the email message, as a dictionary."
-        },
-        "raw_email_ref": {
-          "description": "Specifies the raw binary contents of the email message, including both the headers and body, as a reference to an Artifact Object.",
-          "type": "string"
+          "description": "specifies the email address that the message was sent from",
         }
       }
     }
+    
   ],
   "oneOf": [
     {

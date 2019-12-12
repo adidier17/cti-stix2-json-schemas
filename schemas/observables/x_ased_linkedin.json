@@ -1,0 +1,36 @@
+{
+  "$id": "",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "x_ased_linkedin",
+  "description": "The LinkedIn Object represents an instance of a LinkedIn message.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "../common/cyber-observable-core.json"
+    },
+    {
+      "$ref": "../common/x_ased_cyber_observable_core.json"
+    }
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The value of this property MUST be `x_ased_linkedin`.",
+          "const": "x_ased_linkedin"         
+        },
+        "id": {
+          "title": "id",
+          "pattern": "^x_ased_linkedin--"
+        },
+        "x_ased_delivered_to": {
+          "type": "string",
+          "description": "Specifies the username the message was delivered to. The value should This must be the value from incoming_message_json[\"meta\"][\"provenance\"][\"account\"]."
+        },
+        "x_ased_from": {
+          "type": "string",
+          "description": "Specifies the username that the message was sent from",
+        }
+      }
+    }
+  ]
+}
