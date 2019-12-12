@@ -1,5 +1,5 @@
 {
-  "$id": "",
+  "$id": "https://gitlab.ased.io/jpl/stix-schemas-fork/blob/master/schemas/observables/x_ased_sms.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "x_ased_sms",
   "description": "The SMS Object represents an instance of an sms message.",
@@ -10,7 +10,7 @@
     },
     {
       "$ref": "../common/x_ased_cyber_observable_core.json"
-    }
+    },
     {
       "properties": {
         "type": {
