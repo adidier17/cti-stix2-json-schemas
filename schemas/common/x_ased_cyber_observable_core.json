@@ -1,18 +1,13 @@
 {
-  "$id": "",
+  "$id": "https://gitlab.ased.io/jpl/stix-schemas-fork/raw/master/schemas/common/x_ased_cyber_observable_core.json#",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "x-ased-cyber-observable-core",
+  "title": "x_ased_cyber_observable_core",
   "description": "Common properties and behavior across all ASED Cyber Observable Objects.",
   "type": "object",
     "properties": {
-      //#TODO Check on the formatting of the timestamp
-      "date": {
-        "$ref": "../common/timestamp.json",
-        "description": "Specifies the date/time that the message was sent."
-      },
       "x_ased_message_id" : {
         "type" : "string",
-        "description": "Reference to the uuid field of the metadata of the incoming message json in kafka",
+        "description": "Reference to the uuid field of the metadata of the incoming message json in kafka"
       },
       "x_ased_malicious": {
         "type": "string",
@@ -27,12 +22,13 @@
           "enum": ["acquire_credentials", "acquire_pii", "annoy_recipient", "build_trust", "elicit_fear", "access_social_network", "gather_general_info", "get_money", "install_malware"]
         },
         "minItems": 0
-        
+
       },
       "x_ased_eval_partner": {
         "type": "string",
         "description": "The evaluation partner that the volunteer belongs to. This piece of information can be found in the kafka metadata in the field \"eval_partner\".",
         "enum": ["jpl", "colpal", "trssllc"]
       }
-    }
+    },
+  "required": ["date", "x_ased_message_id", "x_ased_malicious", "x_ased_motive", "x_ased_eval_partner"]
 }
