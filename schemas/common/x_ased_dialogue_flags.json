@@ -12,7 +12,7 @@
         "action_type": {
           "type": "string",
           "enum": [
-            "clicked_lin",
+            "clicked_link",
             "download_attachment",
             "open_attachment",
             "send_attachment",
