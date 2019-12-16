@@ -6,17 +6,11 @@
   "type": "object",
   "allOf": [
     {
-      "$ref": "../common/cyber-observable-core.json"
-    },
-    {
-      "$ref": "../common/x_ased_cyber_observable_core.json"
-    },
-    {
       "properties": {
         "type": {
           "type": "string",
           "description": "The value of this property MUST be `x_ased_linkedin`.",
-          "const": "x_ased_linkedin"         
+          "const": "x_ased_linkedin"
         },
         "id": {
           "title": "id",
@@ -29,13 +23,8 @@
         "x_ased_from": {
           "type": "string",
           "description": "Specifies the username that the message was sent from"
-        },
-        "x_ased_message_id": {
-          "type": "string",
-          "description": "UUID found in the meta data of the kafka incoming message json: incoming_message['meta']['uuid']"
         }
       }
     }
-  ],
-  "required": ["type", "id", "x_ased_delivered_to", "x_ased_from", "x_ased_message_id"]
+  ]
 }

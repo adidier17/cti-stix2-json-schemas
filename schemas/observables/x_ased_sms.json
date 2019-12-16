@@ -31,8 +31,13 @@
           "type": "string",
           "description": "Specifies the E.164 formatted phone number that the message was sent from",
           "pattern": "^+\\d{7,15}"
+        },
+        "x_ased_message_id": {
+          "type": "string",
+          "description": "UUID found in the meta data of the kafka incoming message json: incoming_message['meta']['uuid']"
         }
       }
     }
-  ]
+  ],
+  "required": ["type", "id", "x_ased_delivered_to", "x_ased_from", "x_ased_message_id"]
 }
