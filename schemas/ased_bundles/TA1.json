@@ -29,20 +29,19 @@
     "objects": {
       "type": "array",
       "description": "Specifies a set of one or more STIX Objects.",
-      "items":
-        {
-            "allOf": [
-              {
-                "$ref": "../common/core.json"
-              },
-              {
-                "$ref": "../sdos/x_ased_observed_data.json"
-              }
-            ]
+      "items": {
+        "allOf": [
+          {
+            "$ref": "../common/core.json"
+          },
+          {
+            "$ref": "../sdos/x_ased_observed_data.json"
           }
+        ]
       },
       "minItems": 1
-    },
+    }
+  },
   "required": [
     "type",
     "id",
