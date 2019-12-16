@@ -28,7 +28,7 @@
         },
         "x_ased_from": {
           "type": "string",
-          "description": "Specifies the username that the message was sent from",
+          "description": "Specifies the username that the message was sent from"
         }
       }
     }
